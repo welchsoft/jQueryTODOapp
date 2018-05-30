@@ -16,13 +16,13 @@ $(document).ready(function(){
   taskAddBtn.click(function(){
     let taskElement = $("<li>")
     let taskInput = $("<h3>")
-    let elementbtn = $("<button>").html("Remove")
-    elementbtn.click(function(){
+    let removeBtn = $("<button>").html("Remove")
+    removeBtn.click(function(){
       $(this).parent().remove()
     })
 //sets up the checkbox which moves items between to do and done lists
-    let elementCheckBox = $("<input>").attr("type","checkbox")
-    elementCheckBox.change(function(){
+    let taskCheckBox = $("<input>").attr("type","checkbox")
+    taskCheckBox.change(function(){
         if(this.checked) {
           completedTasks.append($(this).parent())
         }
@@ -31,10 +31,10 @@ $(document).ready(function(){
         }
     })
 //append the child elements to <li> appends <li>
-    taskElement.append(elementCheckBox)
+    taskElement.append(taskCheckBox)
     taskInput.append($("#task-input").val())
     taskElement.append(taskInput)
-    taskElement.append(elementbtn)
+    taskElement.append(removeBtn)
     $("#task-input").val('')
 //append our completed task <li> to the <ul>
     pendingTasks.append(taskElement)
